@@ -1,0 +1,225 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    --thumbnail-width: 250px;
+    --thumbnail-height: 150px;
+    --channel-icon-size: 36px;
+    --channel-name-color: #555;
+    --preloading-color: #AAA;
+
+    margin: 0;
+}
+
+.video{
+    background-color: #F9F9F9;
+}
+
+.video-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--thumbnail-width), 1fr));
+    gap: 3rem 1rem;
+    padding: 3rem 0;
+    margin: 0 1.5rem;
+    border-top: 2px solid #CCC;
+}
+
+.video-section:first-child {
+    border-top: none;
+}
+
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail {
+    position: relative;
+    display: flex;
+}
+
+.thumbnail::before {
+    content: attr(data-duration);
+    position: absolute;
+    background-color: rgba(0, 0, 0, .85);
+    color: white;
+    right: 5px;
+    bottom: 5px;
+    padding: .1em .3em;
+    border-radius: .3em;
+    font-size: .9rem;
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: 100;
+    min-width: var(--thumbnail-width);
+    min-height: var(--thumbnail-height);
+    background-color: var(--preloading-color);
+}
+
+.video-bottom-section {
+    display: flex;
+    align-items: start;
+    margin-top: 1rem;
+}
+
+.channel-icon {
+    border-radius: 50%;
+    margin-right: .75rem;
+    height: var(--channel-icon-size);
+    width: var(--channel-icon-size);
+    background-color: var(--preloading-color);
+
+}
+
+.video-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: .5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.video-channel-name {
+    margin-bottom: .1rem;
+    text-decoration: none;
+    color: var(--channel-name-color);
+    transition: color 150ms;
+}
+
+.video-channel-name:hover {
+    color: #111;
+}
+
+.video-metadata {
+    color: var(--channel-name-color);
+
+
+}
+
+.video-section-title{
+    grid-column: 1 / -1;
+    margin: -.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 .5rem; 
+} 
+
+.video-section-titile-close {
+    border: none;
+    padding: 0;
+    background-color: none;
+    font-size: 2rem;
+    color: var(--channel-name-color);
+    cursor: pointer;
+}
+
+.categories {
+    padding: 1rem 2rem;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+.category-section {
+    display: flex;
+    overflow: hidden;
+}
+
+.category {
+    margin-right: 1rem;
+    border: 1px solid #CCC;
+    border-radius: 900px;
+    word-wrap: none;
+    white-space: nowrap;
+    background-color: #E7E7E7;
+    padding: .5rem 1rem;
+    font-size: inherit;
+    transition: background-color 150ms;
+}
+
+.category:hover {
+    background-color: #DDD;
+}
+
+.category.active {
+    background-color: #606060;
+    color: white;
+    border-color: #EEE;
+}
+
+.category.active:hover {
+    background-color: rgb(154, 156, 154);
+}
+
+.category:last-child {
+    margin-right: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.YouTube-logo {
+    height: 20px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    display: flex;
+    margin: 0 2rem 0 4rem;
+    /* border: 1px solid red; */
+}
+
+.search-input {
+    width: 100%;
+    font-size: inherit;
+    padding: .4em;
+    border: 1px solid #777;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.25rem;
+    border: 1px solid #777;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #FBFBFB;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: #F0F0F0;
+}
+
+.menu-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+    margin-left: 30px;
+}
+
+.menu-channel-icon {
+    border-radius: 50%;
+    width: var(--channel-icon-size);
+    height: var(--channel-icon-size);
+    background-color: var(--preloading-color);
+}
